@@ -2,26 +2,25 @@
 import java.util.Scanner;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author djver
- */
+Dylan Veraart
+3/23/2019
+Dock.java
+Dock objects are created when the file being opened has a 'dock' line. Docks
+can hold single ship object and have a parent port.
+*/
 public class Dock extends Thing {
     Ship ship;
 
     public Dock(Scanner sc) throws InvalidInputException {
         super(sc);
-        int i;
-        if (sc.hasNextInt()) i = sc.nextInt();
+        if (sc.hasNextInt()) ship = new Ship("ERROR: Unknown Ship", sc.nextInt(), index); 
         else throw new InvalidInputException();
-        ship = new Ship("ERROR: Unknown Ship", i, index);
-    }
+        
+    }//Builds a Dock object from a line in the file with a dummy ship object.
+    
+    
+    @Override
     public String toString(){
         return "Dock: " + super.toString();
-    }
+    } //returns dock name and index as a string with proper label
 }

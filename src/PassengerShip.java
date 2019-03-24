@@ -2,15 +2,12 @@
 import java.util.*;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author djver
- */
+Dylan Veraart
+3/23/2019
+PassengerShip.java
+PassengerShip objects are child classes of Ship objects and are created when 
+'pship' lines in the open file are processed by the World object.
+*/
 public class PassengerShip extends Ship{
     int numberOfOccupiedRooms, numberOfPassenger, numberOfRooms;
 
@@ -20,8 +17,10 @@ public class PassengerShip extends Ship{
         if (sc.hasNextInt()) numberOfRooms = sc.nextInt();
         if (sc.hasNextInt()) numberOfOccupiedRooms = sc.nextInt();
         else throw new InvalidInputException();
-    }
+    }//Builds PassengerShip when line found in file
+    
+    @Override
     public String toString(){
         return "Passenger " + super.toString();
-    }
+    }//returns PassengerShip name and index as a string with proper label
 }

@@ -1,13 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author djver
- */
+Dylan Veraart
+3/23/2019
+InvalidInputException.java
+This exception is used for handling invalid file syntax and although it's beyond
+the scope of the project is very useful for debugging.
+*/
 public class InvalidInputException extends Exception {
 
     public InvalidInputException() {
