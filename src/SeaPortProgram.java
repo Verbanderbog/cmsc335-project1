@@ -36,7 +36,7 @@ public class SeaPortProgram extends JFrame{
                     text.setText(world.toString());
                     break;
                 case "search":
-                    text.setText(search(String.valueOf(searchType.getSelectedItem()),searchField.getText()));
+                    text.setText(search(String.valueOf(searchType.getSelectedItem()),searchField.getText().trim()));
             }
         };
         JMenuBar menuBar = new JMenuBar();

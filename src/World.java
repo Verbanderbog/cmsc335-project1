@@ -50,11 +50,13 @@ class World extends Thing {
                 break;
             case "person":
                 Person person = new Person(sc);
-                findSeaPortByIndex(person.parent).persons.add(person);
+                SeaPort tempPortA = findSeaPortByIndex(person.parent);
+                if (tempPortA != null) tempPortA.persons.add(person);
                 break;
             case "dock":
                 Dock dock = new Dock(sc);
-                findSeaPortByIndex(dock.parent).docks.add(dock);
+                SeaPort tempPortB =findSeaPortByIndex(dock.parent);
+                if (tempPortB != null) tempPortB.docks.add(dock);
                 Ship tempShip = findShipByIndex(dock.ship.index);
                 if (tempShip != null) dock.ship=tempShip;
                 break;
@@ -243,6 +245,7 @@ class World extends Thing {
                 retString.append("  >");
                 retString.append(person.toString());
             }
+            retString.append("\n");
          }
          return retString.toString();
     }//Builds the display string for the whole file based on the object structure
@@ -254,8 +257,10 @@ class World extends Thing {
             port.ships.add(s);
         } catch (NullPointerException e){
             Thing[] dockAndPort = findDockByIndex(s.parent);
-            ((Dock) dockAndPort[0]).ship=s;
-            ((SeaPort) dockAndPort[1]).ships.add(s);
+            if (dockAndPort!=null){
+                if (dockAndPort[0]!=null) ((Dock) dockAndPort[0]).ship=s;
+                if (dockAndPort[1]!=null) ((SeaPort) dockAndPort[1]).ships.add(s);
+            }
         }
     }//Helper method when processing ship lines in process()
     

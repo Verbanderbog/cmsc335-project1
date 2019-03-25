@@ -17,6 +17,7 @@ class Ship extends Thing{
 
     public Ship(Scanner sc) throws InvalidInputException{
         super(sc);
+        jobs= new ArrayList<>();
         if (sc.hasNextDouble()) weight = sc.nextDouble();
         if (sc.hasNextDouble()) length = sc.nextDouble();
         if (sc.hasNextDouble()) width = sc.nextDouble();
